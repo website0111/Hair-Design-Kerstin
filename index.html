@@ -106,7 +106,8 @@
 
         #home {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hintergrund.jpg') center/cover no-repeat;
+            /* Hintergrundbild angepasst auf Hintergrund.jpeg */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Hintergrund.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -119,7 +120,7 @@
             color: var(--pure-white);
             margin-bottom: 10px;
             animation: fadeInDown 1s ease;
-            font-style: italic; /* Optional für den Slogan-Look */
+            font-style: italic;
         }
 
         .hero-content p {
@@ -191,7 +192,7 @@
 
         .about-flex {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 50px;
             flex-wrap: wrap;
         }
@@ -206,8 +207,20 @@
         }
 
         .about-text {
-            flex: 1;
+            flex: 1.5;
             min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .highlight-text {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--dark-green);
+            display: block;
+            margin: 10px 0;
         }
 
         #galerie {
@@ -270,16 +283,13 @@
             font-weight: 600;
         }
 
-        .opening-hours-table {
-            width: 100%;
-            max-width: 300px;
-            margin: 30px auto 0;
-            border-collapse: collapse;
-        }
-
-        .opening-hours-table td {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        .opening-hours-info {
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: var(--dark-green);
+            font-size: 1.2rem;
         }
 
         footer {
@@ -393,8 +403,32 @@
                 <div class="about-text">
                     <h2>Über mich</h2>
                     <div class="underline" style="margin-left: 0; margin-bottom: 20px;"></div>
-                    <p>Hallo, ich bin Kerstin! Seit über 10 Jahren ist das Friseurhandwerk meine Leidenschaft. In meinem Salon in Trofaiach verbinde ich professionelle Handwerkskunst mit einer herzlichen Beratung.</p>
-                    <p>Mir ist wichtig, dass du dich bei mir nicht nur wohlfühlst, sondern den Salon mit einem Lächeln verlässt. Ich nehme mir Zeit für deine Wünsche.</p>
+                    
+                    <p><strong>Willkommen bei Hair Design Kerstin</strong><br>
+                    Wo Handwerk auf Herz trifft und Zeit eine neue Bedeutung bekommt.</p>
+                    
+                    <p><span class="highlight-text">„24 Jahre Leidenschaft für Haare – und heute mehr denn je ein offenes Ohr für den Menschen hinter dem Spiegel.“</span></p>
+                    
+                    <p>Hallo, ich bin Kerstin. Schön, dass du den Weg zu mir gefunden hast!</p>
+                    
+                    <p>Das Friseurhandwerk ist für mich weit mehr als nur ein Beruf – es ist meine Berufung. Nach über zwei Jahrzehnten in dieser Branche habe ich im letzten Jahr einen mutigen Schritt gewagt und mein Leben komplett neu sortiert. Warum? Weil ich zurück zum Wesentlichen wollte: Weg von der Hektik, hin zu Augenblicken, in denen nur du und deine Wünsche die Hauptrolle spielen.</p>
+                    
+                    <p><strong>Mehr als nur ein Haarschnitt: Eine Zeit der Begegnung</strong></p>
+                    <p>Ich weiß, dass ein Besuch beim Friseur oft viel mehr ist als nur das Schneiden und Färben. In einer Welt, die immer hektischer wird, biete ich dir einen Raum, in dem du wirklich ankommen darfst. Bei mir findest du nicht nur handwerkliche Präzision aus 24 Jahren Erfahrung, sondern vor allem ungeteilte Aufmerksamkeit. Ob wir gemeinsam lachen, über das Leben philosophieren oder du einfach die wohltuende Stille genießt – dieser Moment gehört ganz allein dir.</p>
+                    
+                    <p><strong>Dein Rückzugsort im Turm</strong></p>
+                    <p>Mein Studio in der Wiesengasse (im Turm, 1. Stock) in Trofaiach habe ich mit viel Liebe zum Detail als privaten Rückzugsort gestaltet. Dass ich diesen Traum verwirklichen konnte, verdanke ich meiner Familie, meinen Freunden und meinen treuen Kunden, die wie ein Fels hinter mir standen und mich unterstützt haben.</p>
+                    
+                    <p><strong>Was dich bei mir erwartet:</strong></p>
+                    <ul>
+                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Zeit statt Hektik:</strong> Durch meine exklusiven Einzeltermine gibt es keine störenden Hintergrundgeräusche und keine Unterbrechungen. Du stehst im Mittelpunkt.</li>
+                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Zuhören als Leidenschaft:</strong> Es ist das Schönste an meinem Beruf, wenn meine Kunden meinen Salon nicht nur mit einer tollen Frisur verlassen, sondern sich auch innerlich ein Stück leichter und glücklicher fühlen.</li>
+                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Deine Auszeit:</strong> Lehn dich zurück, genieße einen guten Kaffee in privater Atmosphäre und lass den Alltag für einen Moment vor der Tür.</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;">Ich nehme mir die Zeit – für dein Haar und für dich. Ich freue mich darauf, dir nicht nur ein neues Styling, sondern ein echtes Lächeln zu schenken.</p>
+                    
+                    <p>Von Herzen,<br><strong>Deine Kerstin</strong></p>
                 </div>
             </div>
         </div>
@@ -434,15 +468,13 @@
                     </div>
                     <div class="contact-item">
                         <h3>Adresse</h3>
-                        <p>Wiesengasse 1<br>8793 Trofaiach</p>
+                        <p>Wiesengasse 1 (im Turm, 1. Stock)<br>8793 Trofaiach</p>
                     </div>
                 </div>
 
-                <table class="opening-hours-table">
-                    <tr><td>Di - Fr:</td><td>09:00 - 18:00</td></tr>
-                    <tr><td>Samstag:</td><td>08:00 - 13:00</td></tr>
-                    <tr><td>So & Mo:</td><td>Geschlossen</td></tr>
-                </table>
+                <div class="opening-hours-info">
+                    Termine nach Vereinbarung
+                </div>
             </div>
         </div>
     </section>
