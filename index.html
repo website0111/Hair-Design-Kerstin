@@ -106,7 +106,6 @@
 
         #home {
             height: 90vh;
-            /* Hintergrundbild angepasst auf Hintergrund.jpeg */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Hintergrund.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -143,6 +142,7 @@
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -211,10 +211,6 @@
             min-width: 300px;
         }
 
-        .about-text p {
-            margin-bottom: 15px;
-        }
-
         .highlight-text {
             font-style: italic;
             font-weight: 600;
@@ -247,10 +243,6 @@
             transition: var(--transition);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
         #kontakt {
             background-color: var(--beige);
         }
@@ -272,17 +264,6 @@
             margin-top: 40px;
         }
 
-        .contact-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .contact-item a {
-            color: var(--dark-green);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
         .opening-hours-info {
             margin-top: 30px;
             padding: 20px;
@@ -292,6 +273,14 @@
             font-size: 1.2rem;
         }
 
+        /* Impressum Style */
+        .impressum-content {
+            text-align: left;
+            padding: 50px 0;
+            background-color: var(--pure-white);
+            display: none; /* Initial versteckt */
+        }
+
         footer {
             background: var(--dark-green);
             color: var(--main-white);
@@ -299,17 +288,44 @@
             text-align: center;
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
+        footer a {
+            color: var(--mid-green);
+            text-decoration: none;
         }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 2px;
+        /* Cookie Banner Style */
+        #cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
             background: var(--dark-green);
-            margin: 4px 0;
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2000;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: slideUp 0.5s ease;
+        }
+
+        .cookie-btn {
+            background: var(--mid-green);
+            border: none;
+            color: var(--dark-green);
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fadeInDown {
@@ -337,6 +353,11 @@
     </style>
 </head>
 <body>
+
+    <div id="cookie-banner">
+        <p>Diese Website verwendet Cookies, um dir das bestmögliche Erlebnis zu bieten. Durch die Nutzung der Seite stimmst du der Verwendung von Cookies zu.</p>
+        <button class="cookie-btn" onclick="acceptCookies()">Einverstanden</button>
+    </div>
 
     <header>
         <div class="container">
@@ -376,22 +397,10 @@
                 <div class="underline"></div>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>Damen</h3>
-                    <p>Waschen, Schneiden, Föhnen & individuelles Styling für Ihren Look.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Herren</h3>
-                    <p>Präzise Haarschnitte und Bartpflege in moderner Umgebung.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Färben</h3>
-                    <p>Balayage, Highlights oder Komplettfarbe mit hochwertigen Produkten.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Styling</h3>
-                    <p>Hochsteckfrisuren und Make-up für besondere Anlässe.</p>
-                </div>
+                <div class="service-card"><h3>Damen</h3><p>Waschen, Schneiden, Föhnen & Styling.</p></div>
+                <div class="service-card"><h3>Herren</h3><p>Präzise Haarschnitte und Bartpflege.</p></div>
+                <div class="service-card"><h3>Färben</h3><p>Balayage, Highlights & Komplettfarbe.</p></div>
+                <div class="service-card"><h3>Styling</h3><p>Hochsteckfrisuren & Make-up.</p></div>
             </div>
         </div>
     </section>
@@ -403,32 +412,12 @@
                 <div class="about-text">
                     <h2>Über mich</h2>
                     <div class="underline" style="margin-left: 0; margin-bottom: 20px;"></div>
-                    
-                    <p><strong>Willkommen bei Hair Design Kerstin</strong><br>
-                    Wo Handwerk auf Herz trifft und Zeit eine neue Bedeutung bekommt.</p>
-                    
+                    <p><strong>Willkommen bei Hair Design Kerstin</strong><br>Wo Handwerk auf Herz trifft...</p>
                     <p><span class="highlight-text">„24 Jahre Leidenschaft für Haare – und heute mehr denn je ein offenes Ohr für den Menschen hinter dem Spiegel.“</span></p>
-                    
                     <p>Hallo, ich bin Kerstin. Schön, dass du den Weg zu mir gefunden hast!</p>
-                    
-                    <p>Das Friseurhandwerk ist für mich weit mehr als nur ein Beruf – es ist meine Berufung. Nach über zwei Jahrzehnten in dieser Branche habe ich im letzten Jahr einen mutigen Schritt gewagt und mein Leben komplett neu sortiert. Warum? Weil ich zurück zum Wesentlichen wollte: Weg von der Hektik, hin zu Augenblicken, in denen nur du und deine Wünsche die Hauptrolle spielen.</p>
-                    
-                    <p><strong>Mehr als nur ein Haarschnitt: Eine Zeit der Begegnung</strong></p>
-                    <p>Ich weiß, dass ein Besuch beim Friseur oft viel mehr ist als nur das Schneiden und Färben. In einer Welt, die immer hektischer wird, biete ich dir einen Raum, in dem du wirklich ankommen darfst. Bei mir findest du nicht nur handwerkliche Präzision aus 24 Jahren Erfahrung, sondern vor allem ungeteilte Aufmerksamkeit. Ob wir gemeinsam lachen, über das Leben philosophieren oder du einfach die wohltuende Stille genießt – dieser Moment gehört ganz allein dir.</p>
-                    
-                    <p><strong>Dein Rückzugsort im Turm</strong></p>
-                    <p>Mein Studio in der Wiesengasse (im Turm, 1. Stock) in Trofaiach habe ich mit viel Liebe zum Detail als privaten Rückzugsort gestaltet. Dass ich diesen Traum verwirklichen konnte, verdanke ich meiner Familie, meinen Freunden und meinen treuen Kunden, die wie ein Fels hinter mir standen und mich unterstützt haben.</p>
-                    
-                    <p><strong>Was dich bei mir erwartet:</strong></p>
-                    <ul>
-                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Zeit statt Hektik:</strong> Durch meine exklusiven Einzeltermine gibt es keine störenden Hintergrundgeräusche und keine Unterbrechungen. Du stehst im Mittelpunkt.</li>
-                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Zuhören als Leidenschaft:</strong> Es ist das Schönste an meinem Beruf, wenn meine Kunden meinen Salon nicht nur mit einer tollen Frisur verlassen, sondern sich auch innerlich ein Stück leichter und glücklicher fühlen.</li>
-                        <li style="margin-left: 20px; margin-bottom: 10px;"><strong>Deine Auszeit:</strong> Lehn dich zurück, genieße einen guten Kaffee in privater Atmosphäre und lass den Alltag für einen Moment vor der Tür.</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px;">Ich nehme mir die Zeit – für dein Haar und für dich. Ich freue mich darauf, dir nicht nur ein neues Styling, sondern ein echtes Lächeln zu schenken.</p>
-                    
-                    <p>Von Herzen,<br><strong>Deine Kerstin</strong></p>
+                    <p>Das Friseurhandwerk ist für mich Berufung. Nach über zwei Jahrzehnten habe ich im letzten Jahr mein Leben neu sortiert, um weg von der Hektik und hin zu deinen Wünschen zu kommen.</p>
+                    <p>In meinem Studio in der Wiesengasse biete ich dir einen Raum, in dem du wirklich ankommen darfst. Ob wir lachen oder die Stille genießen – dieser Moment gehört dir.</p>
+                    <p>Ich freue mich darauf, dir ein echtes Lächeln zu schenken.<br><br>Von Herzen,<br><strong>Deine Kerstin</strong></p>
                 </div>
             </div>
         </div>
@@ -455,37 +444,45 @@
                 <div class="underline"></div>
             </div>
             <div class="contact-card">
-                <p>Für eine Terminvereinbarung erreichst du mich telefonisch oder per E-Mail:</p>
-                
                 <div class="contact-details">
-                    <div class="contact-item">
-                        <h3>Telefon</h3>
-                        <a href="tel:+436508391196">+43 650 839 1196</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3>E-Mail</h3>
-                        <a href="mailto:kerstinrothbauer@gmail.com">kerstinrothbauer@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Adresse</h3>
-                        <p>Wiesengasse 1 (im Turm, 1. Stock)<br>8793 Trofaiach</p>
-                    </div>
+                    <div class="contact-item"><h3>Telefon</h3><a href="tel:+436508391196">+43 650 839 1196</a></div>
+                    <div class="contact-item"><h3>E-Mail</h3><a href="mailto:kerstinrothbauer@gmail.com">kerstinrothbauer@gmail.com</a></div>
+                    <div class="contact-item"><h3>Adresse</h3><p>Wiesengasse 1 (1. Stock)<br>8793 Trofaiach</p></div>
                 </div>
-
-                <div class="opening-hours-info">
-                    Termine nach Vereinbarung
-                </div>
+                <div class="opening-hours-info">Termine nach Vereinbarung</div>
             </div>
+        </div>
+    </section>
+
+    <section id="impressum" class="impressum-content">
+        <div class="container">
+            <h2>Impressum</h2>
+            <br>
+            <p><strong>Inhaberin:</strong> Kerstin Rothbauer</p>
+            <p><strong>Unternehmensbezeichnung:</strong> Hair Design Kerstin</p>
+            <p><strong>Anschrift:</strong> Wiesengasse 1, 8793 Trofaiach, Österreich</p>
+            <p><strong>Kontaktdaten:</strong><br>
+            Tel: +43 650 839 1196<br>
+            E-Mail: kerstinrothbauer@gmail.com</p>
+            <br>
+            <p><strong>Gewerbeberechtigung:</strong> Friseur und Perückenmacher (Haarschnitt, Haarpflege, Farbgestaltung)</p>
+            <p><strong>Aufsichtsbehörde:</strong> Bezirkshauptmannschaft Leoben</p>
+            <p><strong>Mitgliedschaft:</strong> Wirtschaftskammer Steiermark</p>
+            <br>
+            <p><strong>Haftungsausschluss:</strong> Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+            <br>
+            <button onclick="toggleImpressum()" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Schließen</button>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p class="copyright">&copy; 2026 Hair Design Kerstin. | <a href="#" style="color:inherit; text-decoration:none; opacity:0.6;">Impressum</a></p>
+            <p>&copy; 2026 Hair Design Kerstin. | <a href="javascript:void(0)" onclick="toggleImpressum()">Impressum</a></p>
         </div>
     </footer>
 
     <script>
+        // Mobil-Menü
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -493,11 +490,29 @@
             navLinks.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+        // Cookie Funktionen
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        };
+
+        // Impressum Funktionen
+        function toggleImpressum() {
+            const imp = document.getElementById('impressum');
+            if (imp.style.display === 'block') {
+                imp.style.display = 'none';
+                window.location.hash = "home";
+            } else {
+                imp.style.display = 'block';
+                imp.scrollIntoView();
+            }
+        }
     </script>
 </body>
 </html>
